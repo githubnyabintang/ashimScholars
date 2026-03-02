@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,7 +24,7 @@
     --border: 105 15% 22%;
     --input: 105 15% 22%;
     --ring: 49 79% 55%;
-    --radius: 0.75rem;
+    --radius: 1rem;
   }
 }
 
@@ -43,7 +44,7 @@
 }
 
 .glass-card {
-  @apply bg-card/80 backdrop-blur-md border border-white/10 shadow-xl;
+  @apply bg-card/80 backdrop-blur-xl border border-white/10 shadow-xl;
 }
 
 .text-gradient {
@@ -64,4 +65,14 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-primary;
+}
+
+/* Mobile App Specific Adjustments */
+@media (max-width: 768px) {
+  h1 {
+    @apply text-4xl leading-tight;
+  }
+  .headline {
+    @apply tracking-tight;
+  }
 }

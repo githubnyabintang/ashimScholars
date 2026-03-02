@@ -4,11 +4,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Menu, X } from "lucide-react";
+import { BookOpen, User } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,10 +34,10 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-primary p-2 rounded-lg group-hover:bg-accent transition-colors">
-            <BookOpen className="w-6 h-6 text-white group-hover:text-background" />
+          <div className="bg-primary p-1.5 md:p-2 rounded-lg group-hover:bg-accent transition-colors">
+            <BookOpen className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-background" />
           </div>
-          <span className="text-xl font-bold tracking-tight text-white headline">
+          <span className="text-lg md:text-xl font-bold tracking-tight text-white headline">
             Ashim<span className="text-accent">Scholars</span>
           </span>
         </Link>
@@ -59,31 +58,13 @@ export default function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X /> : <Menu />}
-        </button>
-      </div>
-
-      {/* Mobile Nav Overlay */}
-      {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-card border-b border-border p-4 flex flex-col gap-4 animate-in slide-in-from-top duration-300">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-lg font-medium py-2 border-b border-border/50"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Button className="bg-accent text-background w-full">Apply Now</Button>
+        {/* Mobile Header Action */}
+        <div className="md:hidden flex items-center gap-3">
+          <Button size="icon" variant="ghost" className="text-accent hover:bg-accent/10 rounded-full">
+            <User className="w-5 h-5" />
+          </Button>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
