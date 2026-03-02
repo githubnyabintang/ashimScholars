@@ -50,7 +50,7 @@ export default function InquiryForm() {
   };
 
   return (
-    <section id="apply" className="py-24 bg-secondary/5">
+    <section id="apply" className="py-24">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -64,7 +64,7 @@ export default function InquiryForm() {
             </p>
             
             <div className="grid gap-4">
-              <div className="flex items-start gap-4 p-5 bg-card/10 border border-white/10 rounded-2xl">
+              <div className="flex items-start gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl">
                 <div className="bg-primary/20 p-2 rounded-lg text-accent">
                   <Download className="w-6 h-6" />
                 </div>
@@ -74,7 +74,7 @@ export default function InquiryForm() {
                   <Button variant="link" className="p-0 h-auto text-accent font-bold">Download PDF (4.2 MB)</Button>
                 </div>
               </div>
-              <div className="flex items-start gap-4 p-5 bg-card/10 border border-white/10 rounded-2xl">
+              <div className="flex items-start gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl">
                 <div className="bg-primary/20 p-2 rounded-lg text-accent">
                   <Download className="w-6 h-6" />
                 </div>
@@ -87,7 +87,7 @@ export default function InquiryForm() {
             </div>
           </div>
 
-          <div className="bg-card rounded-[2.5rem] p-8 md:p-12 shadow-3xl border border-white/5">
+          <div className="bg-card rounded-[3rem] p-8 md:p-12 shadow-3xl border-none">
             <div className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -95,7 +95,7 @@ export default function InquiryForm() {
                   <Input 
                     id="name" 
                     placeholder="Enter your name" 
-                    className="h-12 border-muted bg-muted/30 text-card-foreground placeholder:text-muted-foreground" 
+                    className="h-12 border-muted bg-muted/5 text-card-foreground placeholder:text-muted-foreground/50" 
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                   />
@@ -106,7 +106,7 @@ export default function InquiryForm() {
                     id="email" 
                     type="email" 
                     placeholder="example@mail.com" 
-                    className="h-12 border-muted bg-muted/30 text-card-foreground placeholder:text-muted-foreground"
+                    className="h-12 border-muted bg-muted/5 text-card-foreground placeholder:text-muted-foreground/50"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                   />
@@ -116,7 +116,7 @@ export default function InquiryForm() {
               <div className="space-y-2">
                 <Label htmlFor="program" className="text-card-foreground font-bold">Program of Interest</Label>
                 <Select onValueChange={(val) => setFormData({...formData, program: val})}>
-                  <SelectTrigger className="h-12 border-muted bg-muted/30 text-card-foreground">
+                  <SelectTrigger className="h-12 border-muted bg-muted/5 text-card-foreground">
                     <SelectValue placeholder="Select a program" />
                   </SelectTrigger>
                   <SelectContent className="bg-card text-card-foreground">
@@ -137,7 +137,7 @@ export default function InquiryForm() {
                     size="sm" 
                     onClick={handleAiAssistance}
                     disabled={loadingAi}
-                    className="text-primary hover:text-primary/80 hover:bg-primary/10 h-8 px-3 gap-2 font-bold"
+                    className="text-primary hover:text-primary/80 hover:bg-primary/5 h-8 px-3 gap-2 font-bold"
                   >
                     {loadingAi ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
                     AI Assistant
@@ -146,7 +146,7 @@ export default function InquiryForm() {
                 <Textarea 
                   id="message" 
                   placeholder="Ask about admissions, fees, or course details..." 
-                  className="min-h-[140px] border-muted bg-muted/30 text-card-foreground placeholder:text-muted-foreground resize-none"
+                  className="min-h-[140px] border-muted bg-muted/5 text-card-foreground placeholder:text-muted-foreground/50 resize-none"
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                 />
@@ -160,7 +160,7 @@ export default function InquiryForm() {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <span className="text-[10px] font-black uppercase tracking-widest text-primary/60">Try Asking:</span>
-                        <ul className="text-xs text-muted-foreground space-y-2 list-none">
+                        <ul className="text-xs text-card-foreground/70 space-y-2 list-none">
                           {aiResult.relevantQuestions.slice(0, 2).map((q, i) => (
                             <li key={i} className="flex gap-2"><span className="text-accent font-bold">•</span>{q}</li>
                           ))}
@@ -168,7 +168,7 @@ export default function InquiryForm() {
                       </div>
                       <div className="space-y-2">
                         <span className="text-[10px] font-black uppercase tracking-widest text-primary/60">Include:</span>
-                        <ul className="text-xs text-muted-foreground space-y-2 list-none">
+                        <ul className="text-xs text-card-foreground/70 space-y-2 list-none">
                           {aiResult.essentialInformationToInclude.slice(0, 2).map((info, i) => (
                             <li key={i} className="flex gap-2"><span className="text-accent font-bold">•</span>{info}</li>
                           ))}

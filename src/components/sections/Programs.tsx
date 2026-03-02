@@ -54,8 +54,8 @@ export default function Programs() {
           {programs.map((program, index) => {
             const placeholder = PlaceHolderImages.find(p => p.id === program.image);
             return (
-              <Card key={index} className="bg-card border-none group overflow-hidden shadow-2xl rounded-[2rem]">
-                <div className="relative h-60 overflow-hidden">
+              <Card key={index} className="bg-card border-none group overflow-hidden shadow-2xl rounded-[2.5rem]">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src={placeholder?.imageUrl || ""}
                     alt={program.title}
@@ -64,33 +64,33 @@ export default function Programs() {
                     data-ai-hint={placeholder?.imageHint}
                   />
                   <div className="absolute top-4 left-4">
-                    <Badge className="bg-accent text-accent-foreground border-none font-bold px-3 py-1 shadow-md">{program.category}</Badge>
+                    <Badge className="bg-primary text-white border-none font-bold px-3 py-1 shadow-md">{program.category}</Badge>
                   </div>
                 </div>
                 <CardHeader>
                   <CardTitle className="headline text-2xl text-card-foreground group-hover:text-primary transition-colors">{program.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                  <p className="text-card-foreground/70 text-sm leading-relaxed line-clamp-3">
                     {program.description}
                   </p>
                   <div className="grid grid-cols-2 gap-4 text-sm font-medium">
-                    <div className="flex items-center gap-2 text-muted-foreground">
+                    <div className="flex items-center gap-2 text-card-foreground/60">
                       <Clock className="w-4 h-4 text-primary" />
                       <span>{program.duration}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
+                    <div className="flex items-center gap-2 text-card-foreground/60">
                       <Book className="w-4 h-4 text-primary" />
                       <span>{program.level}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-muted-foreground col-span-2">
+                    <div className="flex items-center gap-2 text-card-foreground/60 col-span-2">
                       <User className="w-4 h-4 text-primary" />
                       <span>{program.instructor}</span>
                     </div>
                   </div>
                 </CardContent>
                 <CardFooter className="pb-8">
-                  <Button className="w-full bg-primary text-white hover:bg-secondary font-bold h-12 rounded-xl">Learn More</Button>
+                  <Button className="w-full bg-primary text-white hover:bg-secondary font-bold h-12 rounded-xl transition-all">Learn More</Button>
                 </CardFooter>
               </Card>
             );

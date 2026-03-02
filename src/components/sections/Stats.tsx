@@ -16,7 +16,7 @@ export default function Stats() {
           {stats.map((stat, index) => (
             <div 
               key={index} 
-              className="text-center p-8 bg-card rounded-3xl shadow-lg border border-border/10 transition-transform hover:-translate-y-1 duration-300"
+              className="text-center p-8 bg-card rounded-[2rem] shadow-2xl border-none transition-transform hover:-translate-y-1 duration-300"
             >
               <div className="inline-flex p-3 rounded-2xl bg-primary/10 text-primary mb-4">
                 <stat.icon className="w-8 h-8" />

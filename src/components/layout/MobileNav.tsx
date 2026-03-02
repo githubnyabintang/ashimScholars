@@ -25,7 +25,7 @@ export default function MobileNav() {
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-6 pt-2 pointer-events-none">
-      <nav className="bg-background/95 backdrop-blur-md rounded-[2rem] flex items-center justify-around py-3 px-4 shadow-2xl pointer-events-auto border border-white/10">
+      <nav className="bg-background/95 backdrop-blur-md rounded-[2.5rem] flex items-center justify-around py-3 px-4 shadow-2xl pointer-events-auto border border-white/10">
         {navItems.map((item) => {
           const isActive = activeTab === item.href;
           return (
@@ -37,7 +37,7 @@ export default function MobileNav() {
                 isActive ? "text-accent scale-110" : "text-muted-foreground"
               }`}
             >
-              <div className={`p-2 rounded-2xl transition-colors ${isActive ? "bg-accent/10" : ""}`}>
+              <div className={`p-2.5 rounded-2xl transition-colors ${isActive ? "bg-accent/10" : ""}`}>
                 <item.icon className={`w-5 h-5 ${isActive ? "text-accent fill-accent/20" : ""}`} />
               </div>
               <span className={`text-[10px] font-black uppercase tracking-tighter ${isActive ? "opacity-100" : "opacity-50"}`}>

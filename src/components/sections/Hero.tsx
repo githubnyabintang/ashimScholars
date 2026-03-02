@@ -14,16 +14,16 @@ export default function Hero() {
           src={heroImage?.imageUrl || ""}
           alt="Ashim Scholars Campus"
           fill
-          className="object-cover opacity-40 grayscale-[0.2]"
+          className="object-cover opacity-30 grayscale-[0.1]"
           priority
           data-ai-hint={heroImage?.imageHint}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/80 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/90 to-background" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-slide-up">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-accent text-xs font-black uppercase tracking-widest mb-10">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/20 border border-primary/30 text-accent text-xs font-black uppercase tracking-widest mb-10">
             <GraduationCap className="w-4 h-4" />
             <span>Islamic Excellence since 1998</span>
           </div>
@@ -35,7 +35,7 @@ export default function Hero() {
             Join Ashim Scholars, a premier Islamic institution dedicated to academic rigor and spiritual growth in a modern world.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg font-black px-12 h-16 rounded-[1.5rem] shadow-2xl">
+            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg font-black px-12 h-16 rounded-[1.5rem] shadow-2xl transition-all">
               Apply Today <ArrowRight className="ml-2 w-6 h-6" />
             </Button>
             <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 text-lg font-bold px-12 h-16 rounded-[1.5rem] backdrop-blur-sm">
