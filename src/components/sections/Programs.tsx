@@ -1,4 +1,3 @@
-
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -43,10 +42,10 @@ export default function Programs() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-4xl font-bold mb-4 headline">Academic <span className="text-accent">Catalog</span></h2>
+            <h2 className="text-4xl font-bold mb-4 headline text-white">Academic <span className="text-accent">Catalog</span></h2>
             <p className="text-muted-foreground">Discover our diverse range of educational programs designed to provide a holistic and rigorous learning experience.</p>
           </div>
-          <Button variant="outline" className="border-accent text-accent hover:bg-accent/10">
+          <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-background font-bold px-8 rounded-full">
             View All Programs
           </Button>
         </div>
@@ -55,43 +54,43 @@ export default function Programs() {
           {programs.map((program, index) => {
             const placeholder = PlaceHolderImages.find(p => p.id === program.image);
             return (
-              <Card key={index} className="glass-card border-none group overflow-hidden">
-                <div className="relative h-56 overflow-hidden">
+              <Card key={index} className="bg-card border-none group overflow-hidden shadow-2xl rounded-[2rem]">
+                <div className="relative h-60 overflow-hidden">
                   <Image
                     src={placeholder?.imageUrl || ""}
                     alt={program.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                     data-ai-hint={placeholder?.imageHint}
                   />
                   <div className="absolute top-4 left-4">
-                    <Badge className="bg-accent text-background border-none">{program.category}</Badge>
+                    <Badge className="bg-accent text-accent-foreground border-none font-bold px-3 py-1 shadow-md">{program.category}</Badge>
                   </div>
                 </div>
                 <CardHeader>
-                  <CardTitle className="headline text-2xl group-hover:text-accent transition-colors">{program.title}</CardTitle>
+                  <CardTitle className="headline text-2xl text-card-foreground group-hover:text-primary transition-colors">{program.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-muted-foreground line-clamp-3">
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
                     {program.description}
                   </p>
-                  <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="grid grid-cols-2 gap-4 text-sm font-medium">
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <Clock className="w-4 h-4 text-accent" />
+                      <Clock className="w-4 h-4 text-primary" />
                       <span>{program.duration}</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <Book className="w-4 h-4 text-accent" />
+                      <Book className="w-4 h-4 text-primary" />
                       <span>{program.level}</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground col-span-2">
-                      <User className="w-4 h-4 text-accent" />
+                      <User className="w-4 h-4 text-primary" />
                       <span>{program.instructor}</span>
                     </div>
                   </div>
                 </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-primary hover:bg-primary/80">Learn More</Button>
+                <CardFooter className="pb-8">
+                  <Button className="w-full bg-primary text-white hover:bg-secondary font-bold h-12 rounded-xl">Learn More</Button>
                 </CardFooter>
               </Card>
             );

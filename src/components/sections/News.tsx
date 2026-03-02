@@ -1,7 +1,6 @@
-
 import React from "react";
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { Calendar, ChevronRight } from "lucide-react";
 
@@ -22,45 +21,48 @@ const newsItems = [
     title: "Community Outreach: Weekend Madrasah Program",
     date: "April 10, 2024",
     image: "news-community",
-    excerpt: "Join our newly launched community program designed for working professionals to deepen their understanding of Deen."
+    excerpt: "Join our newly launched community program designed for professionals to deepen their understanding of Deen."
   }
 ];
 
 export default function News() {
   return (
-    <section id="news" className="py-24 bg-secondary/20">
+    <section id="news" className="py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 headline">Latest <span className="text-accent">News & Insights</span></h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">Stay updated with the latest happenings, academic research, and community events at Ashim Scholars.</p>
+          <h2 className="text-4xl md:text-5xl font-black mb-4 headline text-white">Latest <span className="text-accent">News & Insights</span></h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Stay updated with happenings, academic research, and community events at Ashim Scholars.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {newsItems.map((item, index) => {
             const placeholder = PlaceHolderImages.find(p => p.id === item.image);
             return (
-              <Card key={index} className="bg-transparent border-none overflow-hidden group cursor-pointer">
-                <div className="relative h-64 mb-4 overflow-hidden rounded-2xl">
+              <Card key={index} className="bg-card border-none overflow-hidden group cursor-pointer shadow-xl rounded-[2rem]">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src={placeholder?.imageUrl || ""}
                     alt={item.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                     data-ai-hint={placeholder?.imageHint}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-6 flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest">
+                    <Calendar className="w-3.5 h-3.5 text-accent" />
+                    <span>{item.date}</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 text-accent text-sm mb-3">
-                  <Calendar className="w-4 h-4" />
-                  <span>{item.date}</span>
-                </div>
-                <h3 className="text-xl font-bold mb-3 headline group-hover:text-accent transition-colors leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                  {item.excerpt}
-                </p>
-                <div className="flex items-center gap-1 text-white font-medium group-hover:gap-2 transition-all">
-                  Read Article <ChevronRight className="w-4 h-4 text-accent" />
+                <div className="p-8">
+                  <h3 className="text-xl font-bold mb-4 headline text-card-foreground group-hover:text-primary transition-colors leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-6 line-clamp-2 leading-relaxed">
+                    {item.excerpt}
+                  </p>
+                  <div className="flex items-center gap-1 text-primary font-black group-hover:gap-2 transition-all text-sm uppercase tracking-tighter">
+                    Read Full Article <ChevronRight className="w-4 h-4 text-accent" />
+                  </div>
                 </div>
               </Card>
             );

@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -51,63 +50,63 @@ export default function InquiryForm() {
   };
 
   return (
-    <section id="apply" className="py-24 bg-card/40 border-y border-border/50">
+    <section id="apply" className="py-24 bg-secondary/5">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-bold mb-6">
               <HelpCircle className="w-4 h-4" />
-              <span>Admissions 2024-25</span>
+              <span>Admissions Open 2024-25</span>
             </div>
-            <h2 className="text-4xl font-bold mb-6 headline">Begin Your <span className="text-accent">Application</span></h2>
-            <p className="text-muted-foreground text-lg mb-8">
-              Take the first step towards an enriching academic journey. Fill out the inquiry form or download the official prospectus to learn more about our requirements.
+            <h2 className="text-4xl md:text-5xl font-black mb-6 headline text-white">Begin Your <br /><span className="text-accent">Success Story</span></h2>
+            <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
+              Take the first step towards an enriching academic journey. Fill out the inquiry form or download our prospectus to explore our legacy.
             </p>
             
-            <div className="space-y-6">
-              <div className="flex items-start gap-4 p-4 glass-card rounded-xl">
+            <div className="grid gap-4">
+              <div className="flex items-start gap-4 p-5 bg-card/10 border border-white/10 rounded-2xl">
                 <div className="bg-primary/20 p-2 rounded-lg text-accent">
-                  <Download className="w-5 h-5" />
+                  <Download className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold mb-1">Undergraduate Prospectus</h4>
-                  <p className="text-sm text-muted-foreground mb-3">Download the comprehensive guide for degree programs.</p>
-                  <Button variant="link" className="p-0 h-auto text-accent">Download PDF (4.2 MB)</Button>
+                  <h4 className="font-bold text-white mb-1">Undergraduate Prospectus</h4>
+                  <p className="text-sm text-muted-foreground mb-3">Comprehensive guide for degree programs.</p>
+                  <Button variant="link" className="p-0 h-auto text-accent font-bold">Download PDF (4.2 MB)</Button>
                 </div>
               </div>
-              <div className="flex items-start gap-4 p-4 glass-card rounded-xl">
+              <div className="flex items-start gap-4 p-5 bg-card/10 border border-white/10 rounded-2xl">
                 <div className="bg-primary/20 p-2 rounded-lg text-accent">
-                  <Download className="w-5 h-5" />
+                  <Download className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold mb-1">International Student Guide</h4>
-                  <p className="text-sm text-muted-foreground mb-3">Everything you need to know about visas and accommodation.</p>
-                  <Button variant="link" className="p-0 h-auto text-accent">Download PDF (2.8 MB)</Button>
+                  <h4 className="font-bold text-white mb-1">International Guide</h4>
+                  <p className="text-sm text-muted-foreground mb-3">Visa and accommodation assistance.</p>
+                  <Button variant="link" className="p-0 h-auto text-accent font-bold">Download PDF (2.8 MB)</Button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="glass-card rounded-3xl p-8 relative">
+          <div className="bg-card rounded-[2.5rem] p-8 md:p-12 shadow-3xl border border-white/5">
             <div className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Full Name</Label>
+                  <Label htmlFor="name" className="text-card-foreground font-bold">Full Name</Label>
                   <Input 
                     id="name" 
-                    placeholder="John Doe" 
-                    className="bg-background/50" 
+                    placeholder="Enter your name" 
+                    className="h-12 border-muted bg-muted/30 text-card-foreground placeholder:text-muted-foreground" 
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email Address</Label>
+                  <Label htmlFor="email" className="text-card-foreground font-bold">Email Address</Label>
                   <Input 
                     id="email" 
                     type="email" 
-                    placeholder="john@example.com" 
-                    className="bg-background/50"
+                    placeholder="example@mail.com" 
+                    className="h-12 border-muted bg-muted/30 text-card-foreground placeholder:text-muted-foreground"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                   />
@@ -115,12 +114,12 @@ export default function InquiryForm() {
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="program">Program of Interest</Label>
+                <Label htmlFor="program" className="text-card-foreground font-bold">Program of Interest</Label>
                 <Select onValueChange={(val) => setFormData({...formData, program: val})}>
-                  <SelectTrigger className="bg-background/50">
+                  <SelectTrigger className="h-12 border-muted bg-muted/30 text-card-foreground">
                     <SelectValue placeholder="Select a program" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-card text-card-foreground">
                     <SelectItem value="tahfiz">Tahfizul Quran</SelectItem>
                     <SelectItem value="arabic">Arabic Linguistics</SelectItem>
                     <SelectItem value="fiqh">Islamic Jurisprudence</SelectItem>
@@ -130,45 +129,49 @@ export default function InquiryForm() {
               </div>
 
               <div className="space-y-2 relative">
-                <div className="flex justify-between items-center">
-                  <Label htmlFor="message">Your Inquiry</Label>
+                <div className="flex justify-between items-center mb-2">
+                  <Label htmlFor="message" className="text-card-foreground font-bold">Your Inquiry</Label>
                   <Button 
                     type="button"
                     variant="ghost" 
                     size="sm" 
                     onClick={handleAiAssistance}
                     disabled={loadingAi}
-                    className="text-accent hover:text-accent/80 hover:bg-accent/10 h-8 px-2 gap-1"
+                    className="text-primary hover:text-primary/80 hover:bg-primary/10 h-8 px-3 gap-2 font-bold"
                   >
-                    {loadingAi ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3" />}
-                    Get AI Advice
+                    {loadingAi ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
+                    AI Assistant
                   </Button>
                 </div>
                 <Textarea 
                   id="message" 
-                  placeholder="Tell us about your background and what you're looking for..." 
-                  className="min-h-[120px] bg-background/50"
+                  placeholder="Ask about admissions, fees, or course details..." 
+                  className="min-h-[140px] border-muted bg-muted/30 text-card-foreground placeholder:text-muted-foreground resize-none"
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                 />
                 
                 {aiResult && (
-                  <div className="mt-4 p-4 rounded-xl bg-primary/20 border border-primary/30 animate-in fade-in slide-in-from-top-2 duration-300">
-                    <div className="flex items-center gap-2 text-accent font-bold mb-3 text-sm">
-                      <Sparkles className="w-4 h-4" /> AI Suggestions
+                  <div className="mt-6 p-6 rounded-2xl bg-primary/5 border border-primary/20 animate-in fade-in slide-in-from-top-2">
+                    <div className="flex items-center gap-2 text-primary font-black mb-4 text-sm">
+                      <Sparkles className="w-4 h-4 text-accent" /> AI SUGGESTIONS
                     </div>
-                    <p className="text-sm text-muted-foreground mb-4">{aiResult.suggestedImprovements}</p>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-accent/80">Try Asking:</span>
-                        <ul className="text-xs text-muted-foreground space-y-1 mt-1 list-disc pl-4">
-                          {aiResult.relevantQuestions.slice(0, 3).map((q, i) => <li key={i}>{q}</li>)}
+                    <p className="text-sm text-card-foreground font-medium mb-5">{aiResult.suggestedImprovements}</p>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-primary/60">Try Asking:</span>
+                        <ul className="text-xs text-muted-foreground space-y-2 list-none">
+                          {aiResult.relevantQuestions.slice(0, 2).map((q, i) => (
+                            <li key={i} className="flex gap-2"><span className="text-accent font-bold">•</span>{q}</li>
+                          ))}
                         </ul>
                       </div>
-                      <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-accent/80">Include:</span>
-                        <ul className="text-xs text-muted-foreground space-y-1 mt-1 list-disc pl-4">
-                          {aiResult.essentialInformationToInclude.slice(0, 3).map((info, i) => <li key={i}>{info}</li>)}
+                      <div className="space-y-2">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-primary/60">Include:</span>
+                        <ul className="text-xs text-muted-foreground space-y-2 list-none">
+                          {aiResult.essentialInformationToInclude.slice(0, 2).map((info, i) => (
+                            <li key={i} className="flex gap-2"><span className="text-accent font-bold">•</span>{info}</li>
+                          ))}
                         </ul>
                       </div>
                     </div>
@@ -176,8 +179,8 @@ export default function InquiryForm() {
                 )}
               </div>
 
-              <Button className="w-full bg-accent text-background hover:bg-accent/90 py-6 text-lg">
-                Submit Inquiry <Send className="ml-2 w-4 h-4" />
+              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 py-7 text-lg font-black shadow-xl rounded-xl transition-all active:scale-[0.98]">
+                Submit Inquiry <Send className="ml-2 w-5 h-5" />
               </Button>
             </div>
           </div>

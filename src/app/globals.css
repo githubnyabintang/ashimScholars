@@ -1,30 +1,29 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 105 21% 8%;
-    --foreground: 0 0% 98%;
-    --card: 105 21% 12%;
-    --card-foreground: 0 0% 98%;
-    --popover: 105 21% 10%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 98 50% 35%;
+    --background: 222 47% 11%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 125 55% 24%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 105 15% 18%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 105 15% 22%;
-    --muted-foreground: 105 10% 70%;
-    --accent: 49 79% 55%;
-    --accent-foreground: 105 21% 10%;
+    --secondary: 123 46% 34%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 47% 20%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 43 96% 58%;
+    --accent-foreground: 222 47% 11%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 105 15% 22%;
-    --input: 105 15% 22%;
-    --ring: 49 79% 55%;
-    --radius: 1rem;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 47% 20%;
+    --input: 222 47% 20%;
+    --ring: 43 96% 58%;
+    --radius: 0.75rem;
   }
 }
 
@@ -35,20 +34,18 @@
   body {
     @apply bg-background text-foreground font-body;
     background-image: 
-      radial-gradient(circle at 50% -10%, hsla(0, 0%, 100%, 0.12), transparent 50%),
-      radial-gradient(circle at top right, hsla(98, 50%, 35%, 0.15), transparent 60%),
-      radial-gradient(circle at bottom left, hsla(49, 79%, 55%, 0.08), transparent 60%),
-      radial-gradient(circle at 80% 40%, hsla(0, 0%, 100%, 0.04), transparent 40%);
+      radial-gradient(circle at 50% -10%, hsla(125, 55%, 24%, 0.15), transparent 60%),
+      radial-gradient(circle at 80% 20%, hsla(43, 96%, 58%, 0.05), transparent 40%);
     background-attachment: fixed;
   }
 }
 
-.glass-card {
-  @apply bg-card/80 backdrop-blur-xl border border-white/10 shadow-xl;
-}
-
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-white;
+}
+
+.headline {
+  @apply tracking-tight font-extrabold;
 }
 
 ::-webkit-scrollbar {
@@ -60,19 +57,9 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-muted rounded-full;
+  @apply bg-primary rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary;
-}
-
-/* Mobile App Specific Adjustments */
-@media (max-width: 768px) {
-  h1 {
-    @apply text-4xl leading-tight;
-  }
-  .headline {
-    @apply tracking-tight;
-  }
+  @apply bg-accent;
 }
