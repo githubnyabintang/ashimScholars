@@ -12,7 +12,18 @@ git add .
 git commit -m "Initial commit: Al-Imam Ashim Mobile-First Web App"
 git branch -M main
 git remote add origin https://github.com/githubnyabintang/ashimScholars.git
+```
+
+### Resolving "fetch first" error
+If you see the error `[rejected] main -> main (fetch first)`, it means the remote repository has files you don't have locally. You can fix this by running:
+
+```bash
+# Option A: Merge remote changes into your local work
+git pull origin main --rebase
 git push -u origin main
+
+# Option B: Overwrite the remote repository (Use only if the remote repo is empty/new)
+git push -u origin main --force
 ```
 
 ## Features
