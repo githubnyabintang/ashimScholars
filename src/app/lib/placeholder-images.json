@@ -1,0 +1,41 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-campus",
+      "description": "Aerial view of a beautiful Islamic educational campus",
+      "imageUrl": "https://picsum.photos/seed/ashim1/1200/600",
+      "imageHint": "islamic architecture campus"
+    },
+    {
+      "id": "program-quran",
+      "description": "Student studying the Holy Quran",
+      "imageUrl": "https://picsum.photos/seed/ashim2/600/400",
+      "imageHint": "studying quran"
+    },
+    {
+      "id": "program-arabic",
+      "description": "Arabic calligraphy and classroom setting",
+      "imageUrl": "https://picsum.photos/seed/ashim3/600/400",
+      "imageHint": "arabic classroom"
+    },
+    {
+      "id": "news-graduation",
+      "description": "Students celebrating graduation",
+      "imageUrl": "https://picsum.photos/seed/ashim4/800/500",
+      "imageHint": "graduation celebration"
+    },
+    {
+      "id": "news-community",
+      "description": "Community gathering at the institution",
+      "imageUrl": "https://picsum.photos/seed/ashim5/800/500",
+      "imageHint": "community gathering"
+    },
+    {
+      "id": "video-thumbnail",
+      "description": "Institution introductory video thumbnail",
+      "imageUrl": "https://picsum.photos/seed/ashim6/1280/720",
+      "imageHint": "educational video"
+    }
+  ]
+}
