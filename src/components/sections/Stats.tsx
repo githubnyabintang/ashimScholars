@@ -2,10 +2,10 @@ import React from "react";
 import { Users, GraduationCap, Award, BookOpen } from "lucide-react";
 
 const stats = [
-  { label: "Active Students", value: "1,200+", icon: Users },
-  { label: "Successful Alumni", value: "5,000+", icon: GraduationCap },
-  { label: "Hafiz Graduates", value: "850+", icon: Award },
-  { label: "Research Papers", value: "120+", icon: BookOpen },
+  { label: "Santri Aktif", value: "1,200+", icon: Users },
+  { label: "Alumni Sukses", value: "5,000+", icon: GraduationCap },
+  { label: "Lulusan Hafiz", value: "850+", icon: Award },
+  { label: "Karya Tulis", value: "120+", icon: BookOpen },
 ];
 
 export default function Stats() {

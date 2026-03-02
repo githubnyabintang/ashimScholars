@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -34,11 +33,11 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-primary p-1.5 md:p-2 rounded-lg group-hover:bg-accent transition-colors">
+          <div className="bg-primary p-1.5 md:p-2 rounded-lg group-hover:bg-accent transition-colors shadow-lg">
             <BookOpen className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-background" />
           </div>
           <span className="text-lg md:text-xl font-bold tracking-tight text-white headline">
-            Ashim<span className="text-accent">Scholars</span>
+            Al-Imam<span className="text-accent">Ashim</span>
           </span>
         </Link>
 
@@ -53,8 +52,8 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Button variant="default" className="bg-accent text-background hover:bg-accent/90">
-            Apply Now
+          <Button variant="default" className="bg-accent text-background hover:bg-accent/90 font-bold shadow-md">
+            Daftar Sekarang
           </Button>
         </div>
 
