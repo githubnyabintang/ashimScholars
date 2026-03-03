@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Logo Deep Green: #008037 -> HSL(146, 100%, 25%) */
+    /* Logo Lime Green: #8EC63F -> HSL(85, 54%, 51%) */
+    /* Logo Yellow: #FFF200 -> HSL(57, 100%, 50%) */
+    /* Dark Background: Very dark green-tinted navy -> HSL(150, 73%, 8%) */
+    
+    --background: 150 73% 8%;
+    --foreground: 0 0% 100%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 150 73% 8%;
+    
+    --popover: 150 73% 8%;
+    --popover-foreground: 0 0% 100%;
+    
+    --primary: 146 100% 25%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 85 54% 51%;
+    --secondary-foreground: 150 73% 8%;
+    
+    --muted: 150 73% 15%;
+    --muted-foreground: 150 10% 65%;
+    
+    --accent: 57 100% 50%;
+    --accent-foreground: 150 73% 8%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 150 73% 15%;
+    --input: 150 73% 15%;
+    --ring: 57 100% 50%;
+    
+    --radius: 1.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    /* Mostly Green Background with White Highlights as requested */
+    background-image: 
+      radial-gradient(circle at 50% -10%, hsla(0, 0%, 100%, 0.1), transparent 70%),
+      radial-gradient(circle at 100% 0%, hsla(146, 100%, 25%, 0.2), transparent 40%),
+      radial-gradient(circle at 0% 100%, hsla(57, 100%, 50%, 0.05), transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-white;
+}
+
+.headline {
+  @apply tracking-tight font-extrabold;
+}
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent;
+}
