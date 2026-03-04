@@ -32,13 +32,22 @@ export default function Navbar() {
         }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-primary p-1.5 md:p-2 rounded-lg group-hover:bg-accent transition-colors shadow-lg">
-            <BookOpen className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-background" />
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="relative w-9 h-9 md:w-11 md:h-11 flex-shrink-0">
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="w-full h-full object-contain drop-shadow-md"
+            />
           </div>
-          <span className="text-lg md:text-xl font-bold tracking-tight text-white headline">
-            Al-Imam<span className="text-accent"> Ashim</span>
-          </span>
+          <div className="flex flex-col justify-center mt-1">
+            <span className="text-[8px] md:text-[9.5px] font-bold text-white/90 leading-[0.8]">
+              Pondok Pesantren Tahfizhul Qur'an
+            </span>
+            <span className="text-[17px] md:text-[21px] font-extrabold tracking-[-0.02em] text-white headline leading-[1.1]">
+              Al-Imam Ashim Makassar
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}

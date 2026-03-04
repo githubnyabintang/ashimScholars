@@ -1,11 +1,11 @@
 
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
 import MobileNav from '@/components/layout/MobileNav';
 
 export const metadata: Metadata = {
-  title: 'Ashim Scholars | Excellence in Islamic Education',
-  description: 'Ashim Scholars is a premier Islamic institution dedicated to academic rigor, spiritual growth, and the mastery of sacred sciences.',
+  title: 'Pondok Tahfizhul Qur\'an Al-Imam Ashim Makassar | Excellence in Islamic Education',
+  description: 'Pondok Tahfizhul Qur\'an Al-Imam Ashim Makassar is a premier Islamic institution dedicated to academic rigor, spiritual growth, and the mastery of sacred sciences.',
 };
 
 export default function RootLayout({
