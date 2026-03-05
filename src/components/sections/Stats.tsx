@@ -2,10 +2,10 @@ import React from "react";
 import { Users, GraduationCap, Award, BookOpen } from "lucide-react";
 
 const stats = [
-  { label: "Santri Aktif", value: "1,200+", icon: Users },
-  { label: "Alumni Sukses", value: "5,000+", icon: GraduationCap },
-  { label: "Lulusan Hafiz", value: "850+", icon: Award },
-  { label: "Karya Tulis", value: "120+", icon: BookOpen },
+  { label: "Santri Aktif", value: "532+", icon: Users },
+  { label: "Penghafal Qur'an", value: "200+", icon: Award },
+  { label: "Tenaga Pendidik", value: "145+", icon: GraduationCap },
+  { label: "Kampus", value: "4", icon: BookOpen },
 ];
 
 export default function Stats() {
@@ -14,8 +14,8 @@ export default function Stats() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="text-center p-8 bg-card rounded-[2rem] shadow-2xl border-none transition-transform hover:-translate-y-1 duration-300"
             >
               <div className="inline-flex p-3 rounded-2xl bg-primary/10 text-primary mb-4">

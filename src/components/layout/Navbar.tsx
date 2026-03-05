@@ -17,10 +17,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Programs", href: "#programs" },
-    { name: "About", href: "#about" },
-    { name: "News", href: "#news" },
-    { name: "Contact", href: "#contact" },
+    { name: "Program", href: "#programs" },
+    { name: "Tentang", href: "#about" },
+    { name: "Galeri", href: "#galeri" },
+    { name: "Berita", href: "#news" },
+    { name: "Kontak", href: "#contact" },
     { name: "Login", href: "/login" },
   ];
 

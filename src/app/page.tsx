@@ -4,8 +4,9 @@ import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
 import Programs from "@/components/sections/Programs";
 import VideoProfile from "@/components/sections/VideoProfile";
+import Galeri from "@/components/sections/Galeri";
 import News from "@/components/sections/News";
-import InquiryForm from "@/components/sections/InquiryForm";
+import Struktur from "@/components/sections/Struktur";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/toaster";
@@ -21,8 +22,9 @@ export default function Home() {
           <VideoProfile />
         </section>
         <Programs />
+        <Galeri />
         <News />
-        <InquiryForm />
+        <Struktur />
         <Contact />
       </main>
       <Footer />
