@@ -137,7 +137,7 @@ export default function DashboardLayout({
                                 <span className="material-symbols-outlined text-[#8CC63F] text-[20px] group-hover:text-white transition-colors">collections</span>
                                 <span className="font-medium text-[14px]">Galeri</span>
                             </Link>
-                            <Link href="/dashboard/program/master" className="flex w-full items-center gap-3.5 rounded-xl py-2.5 px-3 text-white/80 hover:bg-white/10 hover:text-white transition-all hover:translate-x-1 group">
+                            <Link href="/dashboard/program/master-program" className="flex w-full items-center gap-3.5 rounded-xl py-2.5 px-3 text-white/80 hover:bg-white/10 hover:text-white transition-all hover:translate-x-1 group">
                                 <span className="material-symbols-outlined text-[#8CC63F] text-[20px] group-hover:text-white transition-colors">category</span>
                                 <span className="font-medium text-[14px]">Master Program</span>
                             </Link>

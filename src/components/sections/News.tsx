@@ -55,11 +55,10 @@ export default function News() {
               className="bg-card border-none overflow-hidden group cursor-pointer shadow-xl rounded-[2rem] hover:-translate-y-1 transition-transform duration-300"
             >
               <div className="relative h-48 overflow-hidden">
-                <Image
+                <img
                   src={item.image}
                   alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
