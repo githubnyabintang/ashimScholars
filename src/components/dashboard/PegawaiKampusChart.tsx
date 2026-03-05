@@ -39,7 +39,6 @@ const options: Highcharts.Options = {
     series: [{
         type: 'pie',
         name: 'Pegawai',
-        colorByPoint: true,
         colors: ['#0ea5e9', '#6366f1', '#22c55e', '#f97316'],
         data: [{
             name: 'KAMPUS I PUTRA',

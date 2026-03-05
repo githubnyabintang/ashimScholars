@@ -1,0 +1,58 @@
+   ▲ Next.js 15.5.9
+   - Environments: .env
+
+   Creating an optimized production build ...
+
+[1m[33mwarn[39m[22m - The class `ease-[cubic-bezier(0.4,0,0.2,1)]` is ambiguous and matches multiple utilities.
+[1m[33mwarn[39m[22m - If this is content and not a class, replace it with `ease-&lsqb;cubic-bezier(0.4,0,0.2,1)&rsqb;` to silence this warning.
+ ✓ Compiled successfully in 21.4s
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+   Generating static pages (0/32) ...
+   Generating static pages (8/32) 
+   Generating static pages (16/32) 
+   Generating static pages (24/32) 
+ ✓ Generating static pages (32/32)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                    Size  First Load JS
+┌ ○ /                                       44.2 kB         154 kB
+├ ○ /_not-found                               993 B         103 kB
+├ ○ /dashboard                               107 kB         208 kB
+├ ○ /dashboard/akademik/jadwal-badal          159 B         102 kB
+├ ○ /dashboard/keuangan/pegawai/master        159 B         102 kB
+├ ○ /dashboard/keuangan/pegawai/rekap-gaji    159 B         102 kB
+├ ○ /dashboard/keuangan/santri/master         159 B         102 kB
+├ ○ /dashboard/keuangan/santri/pembayaran   2.14 kB         104 kB
+├ ○ /dashboard/lembaga/artikel              2.17 kB         104 kB
+├ ○ /dashboard/lembaga/galeri               2.25 kB         104 kB
+├ ○ /dashboard/lembaga/hak-akses              159 B         102 kB
+├ ○ /dashboard/lembaga/profil               1.82 kB         103 kB
+├ ○ /dashboard/lembaga/struktur             1.83 kB         103 kB
+├ ○ /dashboard/market/kasir-laundry         3.57 kB         105 kB
+├ ○ /dashboard/market/kasir-market          3.25 kB         105 kB
+├ ○ /dashboard/market/pegawai-market        1.61 kB         103 kB
+├ ○ /dashboard/market/produk                1.98 kB         104 kB
+├ ○ /dashboard/pegawai/absensi                159 B         102 kB
+├ ○ /dashboard/pegawai/absensi-badal          159 B         102 kB
+├ ○ /dashboard/pegawai/data                   159 B         102 kB
+├ ○ /dashboard/pegawai/data-absensi           159 B         102 kB
+├ ○ /dashboard/pegawai/master                 159 B         102 kB
+├ ○ /dashboard/program/master-program         159 B         102 kB
+├ ○ /dashboard/program/tahfidz                159 B         102 kB
+├ ○ /dashboard/santri/catatan                 159 B         102 kB
+├ ○ /dashboard/santri/data                    159 B         102 kB
+├ ○ /dashboard/santri/presensi                159 B         102 kB
+├ ○ /dashboard/spsb/panduan                   159 B         102 kB
+├ ○ /icon.png                                   0 B            0 B
+└ ○ /login                                  6.23 kB         116 kB
++ First Load JS shared by all                102 kB
+  ├ chunks/255-99e1d6b668e20fa1.js          45.4 kB
+  ├ chunks/4bd1b696-21f374d1156f834a.js     54.2 kB
+  └ other shared chunks (total)             1.96 kB
+
+
+○  (Static)  prerendered as static content
+

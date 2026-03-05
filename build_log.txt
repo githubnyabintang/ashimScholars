@@ -1,0 +1,22 @@
+   ▲ Next.js 15.5.9
+   - Environments: .env
+
+   Creating an optimized production build ...
+
+[1m[33mwarn[39m[22m - The class `ease-[cubic-bezier(0.4,0,0.2,1)]` is ambiguous and matches multiple utilities.
+[1m[33mwarn[39m[22m - If this is content and not a class, replace it with `ease-&lsqb;cubic-bezier(0.4,0,0.2,1)&rsqb;` to silence this warning.
+ ✓ Compiled successfully in 40s
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+   Generating static pages (0/32) ...
+Error occurred prerendering page "/dashboard/lembaga/galeri". Read more: https://nextjs.org/docs/messages/prerender-error
+Error: Event handlers cannot be passed to Client Component props.
+  {src: ..., alt: ..., className: ..., onError: function onError}
+                                                ^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>) {
+  digest: '928332939'
+}
+Export encountered an error on /dashboard/lembaga/galeri/page: /dashboard/lembaga/galeri, exiting the build.
+ ⨯ Next.js build worker exited with code: 1 and signal: null
