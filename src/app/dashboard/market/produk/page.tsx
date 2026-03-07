@@ -14,21 +14,21 @@ export default function MarketProdukPage() {
                 </div>
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
                 <button
                     onClick={() => setActiveTab('data-barang')}
-                    className={`px-6 py-2.5 rounded-xl text-sm font-bold uppercase transition-all ${activeTab === 'data-barang'
-                            ? 'bg-[#00642F] text-white shadow-sm'
-                            : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                    className={`px-6 py-2.5 rounded-xl text-sm font-bold uppercase transition-all whitespace-nowrap ${activeTab === 'data-barang'
+                        ? 'bg-[#00642F] text-white shadow-sm'
+                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                         }`}
                 >
                     Data Barang
                 </button>
                 <button
                     onClick={() => setActiveTab('supplier')}
-                    className={`px-6 py-2.5 rounded-xl text-sm font-bold uppercase transition-all ${activeTab === 'supplier'
-                            ? 'bg-[red] text-white shadow-sm'
-                            : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                    className={`px-6 py-2.5 rounded-xl text-sm font-bold uppercase transition-all whitespace-nowrap ${activeTab === 'supplier'
+                        ? 'bg-[red] text-white shadow-sm'
+                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                         }`}
                 >
                     Supplier
@@ -109,8 +109,58 @@ export default function MarketProdukPage() {
                                 </div>
                             </div>
 
-                            <div className="lg:col-span-2">
-                                <div className="overflow-x-auto">
+                            <div className="lg:col-span-2 mt-4 lg:mt-0">
+                                {/* Mobile List Cards Data Barang */}
+                                <div className="md:hidden flex flex-col gap-3 pb-3">
+                                    {[
+                                        { id: '34543768999', name: 'Biskuit Better', buy: '1,800', sell: '2,000', supplier: 'Grosir Go Tama', stock: 0 },
+                                        { id: '8994834000218', name: 'biskuit go rio', buy: '465', sell: '500', supplier: '-', stock: 0 },
+                                        { id: '8998001302316', name: 'Biskuit Malkist Abon', buy: '880', sell: '1,000', supplier: '-', stock: 0 },
+                                        { id: '089686611601', name: 'kripik Qtela singkong', buy: '1,800', sell: '2,000', supplier: '-', stock: 0 },
+                                    ].map((item, index) => (
+                                        <div key={index} className="bg-white border border-slate-200 p-3.5 rounded-xl shadow-sm flex flex-col gap-3">
+                                            <div className="flex justify-between items-start">
+                                                <div className="flex flex-col gap-1 max-w-[85%]">
+                                                    <div className="font-bold text-slate-800 text-[14px] leading-tight">{item.name}</div>
+                                                    <div className="text-[11px] text-slate-500 font-medium break-all">ID: <span className="text-slate-700">{item.id}</span></div>
+                                                </div>
+                                                <span className="text-[10px] text-slate-500 font-medium whitespace-nowrap bg-slate-100 px-2 py-0.5 rounded-full mt-0.5">No. {index + 1}</span>
+                                            </div>
+
+                                            <div className="flex items-center gap-1.5 flex-wrap">
+                                                <span className="inline-flex items-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-lg truncate">
+                                                    Supplier: {item.supplier || '-'}
+                                                </span>
+                                                <span className="inline-flex items-center text-[10px] font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg">
+                                                    Stok: {item.stock}
+                                                </span>
+                                            </div>
+
+                                            <div className="grid grid-cols-2 gap-2 mt-1">
+                                                <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-100 flex flex-col gap-1 h-full justify-center">
+                                                    <span className="text-slate-500 font-medium text-[10px]">Harga Beli</span>
+                                                    <span className="text-slate-700 font-bold text-[13px]">{item.buy}</span>
+                                                </div>
+                                                <div className="bg-green-50/50 p-2.5 rounded-lg border border-green-100 flex flex-col gap-1 h-full justify-center text-right">
+                                                    <span className="text-slate-500 font-semibold text-[10px]">Harga Jual</span>
+                                                    <span className="font-bold text-green-600 text-[14px]">{item.sell}</span>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex gap-2 mt-1 pt-3 border-t border-slate-100">
+                                                <button className="flex-1 h-8 rounded-lg bg-yellow-50 text-yellow-600 flex items-center justify-center hover:bg-yellow-100 transition-colors" title="Edit">
+                                                    <span className="material-symbols-outlined text-[16px]">edit</span>
+                                                </button>
+                                                <button className="flex-1 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100 transition-colors" title="Hapus">
+                                                    <span className="material-symbols-outlined text-[16px]">delete</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Desktop Table */}
+                                <div className="hidden md:block overflow-x-auto">
                                     <table className="w-full text-sm text-left border">
                                         <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200 uppercase text-xs">
                                             <tr>
@@ -167,8 +217,47 @@ export default function MarketProdukPage() {
                                 Tambah Data
                             </button>
                         </div>
-                        <div className="p-6">
-                            <div className="overflow-x-auto">
+                        <div className="p-4 sm:p-6">
+                            {/* Mobile List Cards Supplier */}
+                            <div className="md:hidden flex flex-col gap-3 pb-3">
+                                {[
+                                    { name: 'Chani Karacca', hp: '2147483647', address: '2147483647' },
+                                    { name: 'Grosir Go Tama', hp: '2147483647', address: '2147483647' },
+                                    { name: 'Unilever', hp: '2147483647', address: '2147483647' },
+                                    { name: 'Wings', hp: '873472647', address: '873472647' },
+                                ].map((item, index) => (
+                                    <div key={index} className="bg-white border border-slate-200 p-3.5 rounded-xl shadow-sm flex flex-col gap-2">
+                                        <div className="flex justify-between items-start">
+                                            <div className="font-bold text-slate-800 text-[14px] leading-tight">{item.name}</div>
+                                            <span className="text-[10px] text-slate-500 font-medium whitespace-nowrap bg-slate-100 px-2 py-0.5 rounded-full mt-0.5">No. {index + 1}</span>
+                                        </div>
+                                        <div className="flex flex-col gap-1 mt-1">
+                                            <div className="text-[12px] text-slate-600 flex items-center gap-2">
+                                                <span className="material-symbols-outlined text-[14px] text-slate-400">call</span>
+                                                <span className="font-medium">{item.hp}</span>
+                                            </div>
+                                            <div className="text-[12px] text-slate-600 flex items-start gap-2">
+                                                <span className="material-symbols-outlined text-[14px] text-slate-400 mt-0.5">location_on</span>
+                                                <span className="leading-snug">{item.address}</span>
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-2 mt-2 pt-3 border-t border-slate-100">
+                                            <button className="flex-1 h-8 rounded-lg bg-yellow-50 text-yellow-600 flex items-center justify-center hover:bg-yellow-100 transition-colors" title="Edit">
+                                                <span className="material-symbols-outlined text-[16px]">edit</span>
+                                            </button>
+                                            <button className="flex-1 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100 transition-colors" title="Hapus">
+                                                <span className="material-symbols-outlined text-[16px]">delete</span>
+                                            </button>
+                                            <button className="flex-1 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center hover:bg-blue-100 transition-colors" title="Penerimaan">
+                                                <span className="material-symbols-outlined text-[16px]">check</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Desktop Table View */}
+                            <div className="hidden md:block overflow-x-auto">
                                 <table className="w-full text-sm text-left border">
                                     <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200 uppercase text-xs">
                                         <tr>

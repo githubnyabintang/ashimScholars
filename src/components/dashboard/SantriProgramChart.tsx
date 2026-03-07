@@ -2,18 +2,7 @@
 
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-
-const data = [
-    { name: "MTs. Tahfizhul Qur'an Al-Imam Ashim Makassar", y: 165 },
-    { name: "Madrasah Aliyah Tahfizhul Qur'an Al-Imam Ashim Makassar", y: 128 },
-    { name: "Tahfizh Murni", y: 130 },
-    { name: "MTs. Putri Al-Imam Ashim Gowa", y: 34 },
-    { name: "Halaqah Mahir Bil-Qur'an Putri", y: 2 },
-    { name: "Halaqah Mahir Bil-Qur'an Putra", y: 9 },
-    { name: "I'dad MTs Putri", y: 16 },
-    { name: "I'dad MTs Putra", y: 41 },
-    { name: "Takhassus", y: 6 }
-];
+import { santriProgramData } from './chartData';
 
 const options: Highcharts.Options = {
     chart: {
@@ -39,9 +28,6 @@ const options: Highcharts.Options = {
         title: {
             text: 'Jumlah Santri'
         }
-    },
-    legend: {
-        enabled: false
     },
     tooltip: {
         pointFormat: '<b>{point.y}</b> Santri'
@@ -69,7 +55,7 @@ const options: Highcharts.Options = {
             '#25b8a5', // teal/aqua
             '#e8a838'  // gold/orange
         ],
-        data: data.map(item => [item.name, item.y]),
+        data: santriProgramData.map(item => [item.name, item.y]),
         dataLabels: {
             enabled: true,
             rotation: 0,
@@ -100,7 +86,7 @@ export default function SantriProgramChart() {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((item, index) => (
+                        {santriProgramData.map((item, index) => (
                             <tr key={index} className="bg-white border-b border-slate-50 hover:bg-slate-50 transition-colors">
                                 <td className="px-5 py-3 font-medium text-slate-800">{item.name}</td>
                                 <td className="px-5 py-3 text-right">{item.y} Santri</td>

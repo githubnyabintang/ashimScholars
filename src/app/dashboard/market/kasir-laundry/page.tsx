@@ -153,23 +153,23 @@ export default function KasirLaundryPage() {
                 {/* Data Table Card */}
                 <div className="col-span-1 lg:col-span-2">
                     <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-                        <div className="p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
+                        <div className="p-4 border-b border-gray-200 flex flex-col sm:flex-row justify-between sm:items-center bg-gray-50 gap-3">
                             <h2 className="text-lg font-semibold text-gray-800">Riwayat Transaksi Laundry</h2>
-                            <div className="flex gap-2">
-                                <button className="px-3 py-1.5 text-xs font-medium bg-white border border-gray-300 rounded hover:bg-gray-50 flex items-center justify-center" aria-label="Copy to Clipboard" title="Copy to Clipboard">
-                                    <Copy className="h-4 w-4 text-gray-600" />
+                            <div className="flex gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-hide">
+                                <button className="px-3 py-2 sm:py-1.5 text-xs font-medium bg-white border border-gray-300 rounded hover:bg-gray-50 flex items-center justify-center whitespace-nowrap" aria-label="Copy to Clipboard" title="Copy to Clipboard">
+                                    <Copy className="h-4 w-4 text-gray-600 sm:mr-0 mr-1" /> <span className="sm:hidden">Copy</span>
                                 </button>
-                                <button className="px-3 py-1.5 text-xs font-medium bg-white border border-gray-300 rounded hover:bg-gray-50 flex items-center justify-center" aria-label="Export to CSV" title="Export to CSV">
-                                    <FileText className="h-4 w-4 text-gray-600" />
+                                <button className="px-3 py-2 sm:py-1.5 text-xs font-medium bg-white border border-gray-300 rounded hover:bg-gray-50 flex items-center justify-center whitespace-nowrap" aria-label="Export to CSV" title="Export to CSV">
+                                    <FileText className="h-4 w-4 text-gray-600 sm:mr-0 mr-1" /> <span className="sm:hidden">CSV</span>
                                 </button>
-                                <button className="px-3 py-1.5 text-xs font-medium bg-white border border-gray-300 rounded hover:bg-gray-50 flex items-center justify-center" aria-label="Export to Excel" title="Export to Excel">
-                                    <FileSpreadsheet className="h-4 w-4 text-green-600" />
+                                <button className="px-3 py-2 sm:py-1.5 text-xs font-medium bg-white border border-gray-300 rounded hover:bg-gray-50 flex items-center justify-center whitespace-nowrap" aria-label="Export to Excel" title="Export to Excel">
+                                    <FileSpreadsheet className="h-4 w-4 text-green-600 sm:mr-0 mr-1" /> <span className="sm:hidden">Excel</span>
                                 </button>
-                                <button className="px-3 py-1.5 text-xs font-medium bg-white border border-gray-300 rounded hover:bg-gray-50 flex items-center justify-center" aria-label="Export to PDF" title="Export to PDF">
-                                    <FilePdf className="h-4 w-4 text-red-600" />
+                                <button className="px-3 py-2 sm:py-1.5 text-xs font-medium bg-white border border-gray-300 rounded hover:bg-gray-50 flex items-center justify-center whitespace-nowrap" aria-label="Export to PDF" title="Export to PDF">
+                                    <FilePdf className="h-4 w-4 text-red-600 sm:mr-0 mr-1" /> <span className="sm:hidden">PDF</span>
                                 </button>
-                                <button className="px-3 py-1.5 text-xs font-medium bg-white border border-gray-300 rounded hover:bg-gray-50 flex items-center justify-center" aria-label="Print Table" title="Print Table">
-                                    <Printer className="h-4 w-4 text-gray-600" />
+                                <button className="px-3 py-2 sm:py-1.5 text-xs font-medium bg-white border border-gray-300 rounded hover:bg-gray-50 flex items-center justify-center whitespace-nowrap" aria-label="Print" title="Print Table">
+                                    <Printer className="h-4 w-4 text-gray-600 sm:mr-0 mr-1" /> <span className="sm:hidden">Print</span>
                                 </button>
                             </div>
                         </div>
@@ -202,7 +202,66 @@ export default function KasirLaundryPage() {
                                 </div>
                             </div>
 
-                            <div className="overflow-x-auto border rounded-md">
+                            {/* Mobile List Cards Riwayat Transaksi */}
+                            <div className="md:hidden flex flex-col gap-3 py-3">
+                                {filteredData.map((item, index) => (
+                                    <div key={item.id} className="bg-white border border-gray-200 p-3.5 rounded-xl shadow-sm flex flex-col gap-3">
+                                        <div className="flex justify-between items-start">
+                                            <div className="flex flex-col gap-1 w-[80%]">
+                                                <div className="font-bold text-gray-800 text-[14px] leading-tight break-all">{item.santri}</div>
+                                                <div className="text-[10px] text-gray-500 font-medium">
+                                                    ID: <span className="text-red-500">{item.idSantri}</span> | Trans: <span className="text-red-500">{item.idTransaksi}</span>
+                                                </div>
+                                            </div>
+                                            <span className="text-[10px] text-gray-500 font-medium whitespace-nowrap">No. {item.id}</span>
+                                        </div>
+
+                                        <div className="flex flex-wrap items-center gap-1.5">
+                                            <span className="inline-flex items-center text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-lg truncate">
+                                                {item.kampus}
+                                            </span>
+                                            <span className="inline-flex items-center text-[10px] font-bold text-gray-700 bg-gray-100 border border-gray-200 px-2 py-0.5 rounded-lg">
+                                                {item.status}
+                                            </span>
+                                            <span className="inline-flex items-center text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-lg">
+                                                Saldo: {item.saldoTerbaru.toFixed(2)} Kg
+                                            </span>
+                                        </div>
+
+                                        <div className="grid grid-cols-2 gap-2 mt-1">
+                                            <div className="bg-gray-50 p-2.5 rounded-lg border border-gray-100 flex flex-col gap-1 h-full justify-center">
+                                                <span className="text-gray-500 font-medium text-[10px] flex justify-between w-full">Qty <span>{item.qty} Kg</span></span>
+                                                <span className="text-gray-500 font-medium text-[10px] flex justify-between w-full">Harga <span className="text-gray-800 font-bold">{item.harga.toLocaleString('id-ID')}</span></span>
+                                            </div>
+                                            <div className="bg-green-50/50 p-2.5 rounded-lg border border-green-100 flex flex-col gap-1 h-full justify-center text-right">
+                                                <span className="text-gray-500 font-semibold text-[10px]">Total</span>
+                                                <span className="font-bold text-[#00642F] text-[14px]">Rp {item.total.toLocaleString('id-ID')}</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex justify-between items-center mt-1 pt-3 border-t border-gray-100">
+                                            <div className="text-[10px] text-gray-500">
+                                                {item.tglTransaksi} / {item.oleh}
+                                            </div>
+                                            <div className="flex gap-2">
+                                                <button className="p-1.5 w-8 h-8 flex items-center justify-center bg-yellow-500 text-white rounded-lg shadow-sm hover:bg-yellow-600 transition-colors" title="Edit">
+                                                    <i className="fas fa-edit text-[14px]"></i>
+                                                </button>
+                                                <button className="p-1.5 w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-lg shadow-sm hover:bg-red-600 transition-colors" title="Hapus">
+                                                    <i className="fas fa-trash text-[14px]"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                                {filteredData.length === 0 && (
+                                    <div className="text-center py-8 text-gray-500 bg-white border border-gray-200 rounded-xl text-sm">
+                                        Tidak ada data transaksi yang ditemukan
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="hidden md:block overflow-x-auto border rounded-md">
                                 <table className="min-w-full divide-y divide-gray-200 text-sm">
                                     <thead className="bg-gray-50">
                                         <tr>

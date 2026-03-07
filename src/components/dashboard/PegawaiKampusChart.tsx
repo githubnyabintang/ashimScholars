@@ -2,6 +2,7 @@
 
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import { pegawaiKampusData } from './chartData';
 
 const options: Highcharts.Options = {
     chart: {
@@ -40,19 +41,7 @@ const options: Highcharts.Options = {
         type: 'pie',
         name: 'Pegawai',
         colors: ['#0ea5e9', '#6366f1', '#22c55e', '#f97316'],
-        data: [{
-            name: 'KAMPUS I PUTRA',
-            y: 17
-        }, {
-            name: 'KAMPUS II PUTRA',
-            y: 100
-        }, {
-            name: 'KAMPUS PUTRI',
-            y: 15
-        }, {
-            name: 'HMQ TELKOM',
-            y: 7
-        }]
+        data: pegawaiKampusData
     }]
 };
 

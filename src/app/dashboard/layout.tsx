@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Manrope } from "next/font/google";
+import MobileBottomNav from "@/components/dashboard/MobileBottomNav";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -52,11 +53,19 @@ export default function DashboardLayout({
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0,0,0,0.02);
         }
         
+        .glass-pill-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.2) inset;
+        }
+
         /* Subtle entrance animation */
         @keyframes fade-in-up {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
         .animate-fade-in-up {
             animation: fade-in-up 0.4s ease-out forwards;
         }
@@ -65,14 +74,14 @@ export default function DashboardLayout({
         .delay-300 { animation-delay: 300ms; }
       `}} />
 
-            {/* Backdrop for mobile */}
+            {/* Backdrop for mobile (Disabled as bottom nav covers this) */}
             <div
-                className={`fixed inset-0 bg-slate-900/40 z-40 md:hidden backdrop-blur-sm transition-opacity duration-300 ${isSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                className={`hidden bg-slate-900/40 z-40 md:hidden backdrop-blur-sm transition-opacity duration-300 ${isSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                 onClick={() => setIsSidebarOpen(false)}
             />
 
             <aside className={`
-                absolute md:static inset-y-0 left-0 z-50 flex-col overflow-y-auto overflow-x-hidden
+                hidden md:flex absolute md:static inset-y-0 left-0 z-50 flex-col overflow-y-auto overflow-x-hidden
                 bg-gradient-to-b from-[#00642F] to-[#004a23] custom-scrollbar text-white shadow-2xl md:shadow-[4px_0_24px_rgba(0,0,0,0.05)]
                 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
                 ${isSidebarOpen
@@ -281,10 +290,10 @@ export default function DashboardLayout({
             <div className="flex flex-1 flex-col overflow-hidden relative">
                 <header className="sticky top-0 z-30 flex items-center justify-between bg-white/80 backdrop-blur-lg border-b border-slate-200/60 px-4 md:px-8 py-4 shadow-sm transition-all">
                     <div className="flex items-center gap-3 md:gap-8 flex-1">
-                        {/* Toggle Sidebar Button (works for both mobile and desktop) */}
+                        {/* Toggle Sidebar Button (hidden on mobile, visible on desktop) */}
                         <button
                             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                            className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 hover:text-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 active:scale-95 bg-white border border-slate-200 shadow-sm"
+                            className="hidden md:block p-2 rounded-xl text-slate-500 hover:bg-slate-100 hover:text-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 active:scale-95 bg-white border border-slate-200 shadow-sm"
                         >
                             <span className="material-symbols-outlined leading-none text-[24px]">
                                 {isSidebarOpen ? 'menu_open' : 'menu'}
@@ -294,6 +303,25 @@ export default function DashboardLayout({
                         <div className="hidden md:flex items-center gap-3">
                             <h2 className="text-xl font-extrabold leading-tight tracking-tight text-slate-800">Overview</h2>
                         </div>
+
+                        {/* Mobile Header Logo */}
+                        <Link href="/dashboard" className="md:hidden flex items-center gap-2 group">
+                            <div className="relative w-9 h-9 flex-shrink-0">
+                                <img
+                                    src="/logo.png"
+                                    alt="Logo"
+                                    className="w-full h-full object-contain"
+                                />
+                            </div>
+                            <div className="flex flex-col justify-center mt-0.5">
+                                <span className="text-[7.5px] font-bold text-slate-500 uppercase tracking-wider leading-[0.8]">
+                                    Pondok Pesantren Tahfizhul Qur'an
+                                </span>
+                                <span className="text-[15px] font-black tracking-[-0.02em] text-[#00642F] leading-[1.1]">
+                                    Al-Imam Ashim Makassar
+                                </span>
+                            </div>
+                        </Link>
 
                         <div className="flex-1 max-w-xl hidden sm:block relative group">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
@@ -325,9 +353,10 @@ export default function DashboardLayout({
                     </div>
                 </header>
 
-                <main className="flex-1 overflow-y-auto w-full custom-scrollbar p-4 md:p-8">
+                <main className="flex-1 overflow-y-auto w-full custom-scrollbar p-4 md:p-8 pb-32 md:pb-8">
                     {children}
                 </main>
+                <MobileBottomNav />
             </div>
         </div >
     );

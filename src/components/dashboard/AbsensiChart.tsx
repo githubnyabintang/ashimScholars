@@ -2,13 +2,7 @@
 
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-
-const data = [
-    { kampus: "KAMPUS I PUTRA", total: 17, sudah: 16, belum: 1 },
-    { kampus: "KAMPUS II PUTRA", total: 100, sudah: 87, belum: 13 },
-    { kampus: "KAMPUS PUTRI", total: 15, sudah: 16, belum: -1 },
-    { kampus: "HMQ TELKOM", total: 7, sudah: 0, belum: 7 }
-];
+import { absensiData } from './chartData';
 
 const options: Highcharts.Options = {
     chart: {
@@ -20,7 +14,7 @@ const options: Highcharts.Options = {
         style: { fontSize: '15px', fontWeight: 'bold', fontFamily: 'Inter, sans-serif' }
     },
     xAxis: {
-        categories: data.map(d => d.kampus),
+        categories: absensiData.map(d => d.kampus),
         crosshair: true,
         labels: {
             style: {
@@ -58,17 +52,17 @@ const options: Highcharts.Options = {
         type: 'column',
         name: 'Total Pegawai',
         color: '#2ebcff', // cyan blue
-        data: data.map(d => d.total)
+        data: absensiData.map(d => d.total)
     }, {
         type: 'column',
         name: 'Sudah rekap',
         color: '#5b47c4', // purple blue
-        data: data.map(d => d.sudah)
+        data: absensiData.map(d => d.sudah)
     }, {
         type: 'column',
         name: 'Belum Rekap',
         color: '#10d182', // bright green
-        data: data.map(d => d.belum)
+        data: absensiData.map(d => d.belum)
     }]
 };
 
@@ -88,7 +82,7 @@ export default function AbsensiChart() {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((item, index) => (
+                        {absensiData.map((item, index) => (
                             <tr key={index} className="bg-white border-b border-slate-50 hover:bg-slate-50 transition-colors">
                                 <td className="px-4 py-3 font-medium text-slate-800 text-left">{item.kampus}</td>
                                 <td className="px-4 py-3">{item.total}</td>

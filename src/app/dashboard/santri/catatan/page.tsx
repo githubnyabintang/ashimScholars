@@ -42,7 +42,49 @@ export default function CatatanSantriPage() {
                     </h2>
                 </div>
 
-                <div className="overflow-x-auto">
+                {/* Mobile List Cards Catatan */}
+                <div className="md:hidden flex flex-col gap-3 p-4 bg-slate-50/50">
+                    {catatanSantriData.length > 0 ? (
+                        catatanSantriData.map((item) => (
+                            <div key={item.id} className="bg-white border border-slate-200 p-4 rounded-xl shadow-sm flex flex-col gap-3">
+                                <div className="flex justify-between items-start">
+                                    <div className="flex flex-col gap-1">
+                                        <div className="font-bold text-slate-800 text-[14px] leading-tight">{item.nama}</div>
+                                        <span className="font-mono text-[10px] bg-slate-100 text-slate-500 px-2 py-0.5 rounded border border-slate-200 w-max mt-0.5">
+                                            ID: {item.idSantri}
+                                        </span>
+                                    </div>
+                                    <span className="text-[10px] font-medium text-slate-500 bg-slate-50 px-2 py-1 rounded-lg border border-slate-100 whitespace-nowrap">
+                                        {item.tgl}
+                                    </span>
+                                </div>
+                                <div className="bg-orange-50/50 text-slate-700 text-xs p-3 rounded-lg border border-orange-100">
+                                    <span className="font-semibold text-orange-800 block mb-1">Catatan:</span>
+                                    <p className="leading-relaxed">{item.catatan}</p>
+                                </div>
+                                <div className="flex justify-between items-center mt-1 border-t border-slate-100 pt-3">
+                                    <div className="flex items-center gap-1.5 text-[10px] font-semibold text-slate-500">
+                                        <span className="material-symbols-outlined text-[14px]">person</span>
+                                        {item.oleh}
+                                    </div>
+                                    {item.file && (
+                                        <button className="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-colors shadow-sm flex items-center gap-1.5">
+                                            <span className="material-symbols-outlined text-[14px]">attachment</span>
+                                            File
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <div className="p-8 text-center text-slate-500 bg-slate-50 rounded-xl border border-slate-200 text-sm font-medium">
+                            Tidak ada data yang ditemukan
+                        </div>
+                    )}
+                </div>
+
+                {/* Desktop Table Catatan */}
+                <div className="hidden md:block overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                         <thead>
                             <tr className="bg-slate-50 text-slate-500 text-[11px] uppercase tracking-wider">

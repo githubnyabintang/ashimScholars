@@ -68,18 +68,50 @@ export default function JadwalBadalPage() {
             </div>
 
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                <div className="p-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
-                    <h2 className="font-bold text-slate-800 flex items-center gap-2">
-                        <span className="material-symbols-outlined text-[#00642F]">calendar_month</span>
+                <div className="p-3 md:p-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
+                    <h2 className="font-bold text-slate-800 flex items-center gap-2 text-sm md:text-base">
+                        <span className="material-symbols-outlined text-[#00642F] text-[18px] md:text-[24px]">calendar_month</span>
                         Data Jadwal Badal
                     </h2>
-                    <button className="bg-[#00642F] text-white hover:bg-[#005025] px-4 py-2 rounded-xl text-sm font-bold transition-colors shadow-sm flex items-center gap-2">
-                        <span className="material-symbols-outlined text-[18px]">add</span>
-                        Tambah Data
+                    <button className="bg-[#00642F] text-white hover:bg-[#005025] px-3 py-1.5 md:px-4 md:py-2 rounded-xl text-xs md:text-sm font-bold transition-colors shadow-sm flex items-center gap-1.5">
+                        <span className="material-symbols-outlined text-[16px] md:text-[18px]">add</span>
+                        <span className="hidden sm:inline">Tambah Data</span>
+                        <span className="sm:hidden">Tambah</span>
                     </button>
                 </div>
 
-                <div className="p-0 overflow-x-auto">
+                {/* Mobile List Cards Badal */}
+                <div className="md:hidden flex flex-col gap-3 p-3 bg-slate-50/50">
+                    {jadwalList.map((item, index) => (
+                        <div key={item.id} className="bg-white border border-slate-200 p-3.5 rounded-xl shadow-sm flex flex-col gap-3">
+                            <div className="flex justify-between items-start">
+                                <div className="font-bold text-slate-800 text-[13px] leading-tight pr-2">{item.namaKegiatan}</div>
+                                <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-lg bg-green-50 text-green-700 font-semibold text-[10px] whitespace-nowrap border border-green-100">
+                                    <span className="material-symbols-outlined text-[14px]">schedule</span>
+                                    {item.jamKegiatan}
+                                </span>
+                            </div>
+                            <div className="text-[11px] text-slate-600">
+                                <span className="font-semibold text-slate-800 block mb-1">Tugas:</span>
+                                <p className="leading-relaxed border-l-2 border-slate-200 pl-2 opacity-90">{item.tugas}</p>
+                            </div>
+                            <div className="flex justify-between items-center mt-1 pt-3 border-t border-slate-100">
+                                <span className="text-[10px] text-slate-400 font-medium">No. {index + 1}</span>
+                                <div className="flex gap-2">
+                                    <button className="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center hover:bg-amber-100 transition-colors tooltip" title="Edit">
+                                        <span className="material-symbols-outlined text-[14px]">edit</span>
+                                    </button>
+                                    <button className="w-7 h-7 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100 transition-colors tooltip" title="Hapus">
+                                        <span className="material-symbols-outlined text-[14px]">delete</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Desktop Table */}
+                <div className="hidden md:block p-0 overflow-x-auto">
                     <table className="w-full text-sm text-left">
                         <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200">
                             <tr>

@@ -2,6 +2,7 @@
 
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import { santriKampusData } from './chartData';
 
 const options: Highcharts.Options = {
     chart: {
@@ -19,8 +20,6 @@ const options: Highcharts.Options = {
         pie: {
             allowPointSelect: true,
             cursor: 'pointer',
-            innerSize: '40%',
-            borderRadius: 8,
             dataLabels: {
                 enabled: true,
                 format: '<b>{point.name}</b><br>{point.y} Santri',
@@ -40,19 +39,7 @@ const options: Highcharts.Options = {
         type: 'pie',
         name: 'Santri',
         colors: ['#22c55e', '#0ea5e9', '#6366f1', '#f97316'],
-        data: [{
-            name: 'Kampus Telkom',
-            y: 9
-        }, {
-            name: 'Kampus IV Mawang',
-            y: 52
-        }, {
-            name: 'Kampus II Antang',
-            y: 341
-        }, {
-            name: 'Kampus I Tidung',
-            y: 130
-        }]
+        data: santriKampusData
     }]
 };
 

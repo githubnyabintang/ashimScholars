@@ -20,8 +20,8 @@ export default function PembayaranSantriPage() {
                 <button
                     onClick={() => setActiveTab('bulanan')}
                     className={`px-6 py-2.5 rounded-xl text-sm font-bold uppercase transition-all ${activeTab === 'bulanan'
-                            ? 'bg-[#00642F] text-white shadow-sm'
-                            : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                        ? 'bg-[#00642F] text-white shadow-sm'
+                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                         }`}
                 >
                     Bulanan
@@ -29,8 +29,8 @@ export default function PembayaranSantriPage() {
                 <button
                     onClick={() => setActiveTab('umum')}
                     className={`px-6 py-2.5 rounded-xl text-sm font-bold uppercase transition-all ${activeTab === 'umum'
-                            ? 'bg-[red] text-white shadow-sm'
-                            : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                        ? 'bg-[red] text-white shadow-sm'
+                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                         }`}
                 >
                     Umum
@@ -100,7 +100,36 @@ export default function PembayaranSantriPage() {
                             </div>
 
                             <div className="lg:col-span-2">
-                                <div className="overflow-x-auto">
+                                {/* Mobile List Cards Pembayaran Bulanan */}
+                                <div className="md:hidden flex flex-col gap-3">
+                                    <div className="bg-white border border-slate-200 p-3.5 rounded-xl shadow-sm flex flex-col gap-3">
+                                        <div className="flex justify-between items-start">
+                                            <div className="flex flex-col gap-1">
+                                                <div className="font-bold text-slate-800 text-[13px] leading-tight">Ahmad Ashim</div>
+                                                <div className="text-[10px] text-slate-400 font-medium">KAMPUS II PUTRA</div>
+                                            </div>
+                                            <div className="text-right">
+                                                <div className="font-bold text-green-600 text-[14px]">1,550,000</div>
+                                                <div className="text-[10px] text-slate-500 font-medium mt-0.5">16-10-2025</div>
+                                            </div>
+                                        </div>
+                                        <div className="text-[11px] text-slate-600 bg-slate-50 p-2 rounded-lg border border-slate-100">
+                                            <span className="font-semibold text-slate-800">Rincian:</span> SPP TP.2025/2026
+                                        </div>
+                                        <div className="flex justify-between items-center pt-2 border-t border-slate-100">
+                                            <div className="flex items-center gap-1.5 text-[10px] text-slate-500">
+                                                <span className="material-symbols-outlined text-[14px]">person</span>
+                                                <span className="truncate max-w-[150px]">Superadmin</span>
+                                            </div>
+                                            <button className="h-7 w-7 rounded-lg bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-100 transition-colors">
+                                                <span className="material-symbols-outlined text-[14px]">delete</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Desktop Table Bulanan */}
+                                <div className="hidden md:block overflow-x-auto">
                                     <table className="w-full text-sm text-left">
                                         <thead className="bg-slate-50 text-slate-600 font-semibold border-y border-slate-200 uppercase text-xs">
                                             <tr>
@@ -204,7 +233,15 @@ export default function PembayaranSantriPage() {
                                 </div>
 
                                 <div className="lg:col-span-2">
-                                    <div className="overflow-x-auto">
+                                    {/* Mobile List Cards Umum */}
+                                    <div className="md:hidden flex flex-col gap-3">
+                                        <div className="bg-white border border-slate-200 p-6 rounded-xl shadow-sm flex items-center justify-center text-center text-slate-500 text-sm font-medium">
+                                            Belum ada data pembayaran hari ini
+                                        </div>
+                                    </div>
+
+                                    {/* Desktop Table Umum */}
+                                    <div className="hidden md:block overflow-x-auto">
                                         <table className="w-full text-sm text-left">
                                             <thead className="bg-slate-50 text-slate-600 font-semibold border-y border-slate-200 uppercase text-xs">
                                                 <tr>
@@ -235,20 +272,28 @@ export default function PembayaranSantriPage() {
             </div>
 
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden mt-6">
-                <div className="px-6 py-4 border-b border-slate-200 flex justify-between items-center">
-                    <h2 className="text-lg font-bold text-slate-800">Histori Pembayaran</h2>
-                    <div className="flex gap-2">
-                        <input type="date" className="border border-slate-300 rounded-xl px-3 py-1.5 text-sm" />
-                        <span className="self-center">s/d</span>
-                        <input type="date" className="border border-slate-300 rounded-xl px-3 py-1.5 text-sm" />
-                        <button className="bg-blue-50 text-blue-600 hover:bg-blue-100 px-3 py-1.5 rounded-xl text-sm font-bold flex items-center gap-1">
-                            <span className="material-symbols-outlined text-[16px]">search</span>
+                <div className="px-4 py-4 md:px-6 md:py-4 border-b border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-0">
+                    <h2 className="text-base md:text-lg font-bold text-slate-800">Histori Pembayaran</h2>
+                    <div className="flex flex-wrap gap-2 w-full md:w-auto">
+                        <input type="date" className="border border-slate-300 rounded-xl px-2 py-1.5 md:px-3 text-xs md:text-sm flex-1 md:flex-none" />
+                        <span className="self-center hidden md:inline text-sm text-slate-500 font-medium">s/d</span>
+                        <input type="date" className="border border-slate-300 rounded-xl px-2 py-1.5 md:px-3 text-xs md:text-sm flex-1 md:flex-none" />
+                        <button className="bg-blue-50 text-blue-600 hover:bg-blue-100 px-3 py-1.5 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center gap-1 w-full sm:w-auto">
+                            <span className="material-symbols-outlined text-[14px] md:text-[16px]">search</span>
                             Cari
                         </button>
                     </div>
                 </div>
-                <div className="p-6">
-                    <div className="overflow-x-auto">
+                <div className="p-4 md:p-6">
+                    {/* Mobile List Cards Histori */}
+                    <div className="md:hidden flex flex-col gap-3">
+                        <div className="bg-slate-50 border border-slate-200 p-6 rounded-xl flex items-center justify-center text-center text-slate-500 text-xs font-medium">
+                            Silakan lakukan pencarian histori pembayaran.
+                        </div>
+                    </div>
+
+                    {/* Desktop Table Histori */}
+                    <div className="hidden md:block overflow-x-auto">
                         <table className="w-full text-sm text-left">
                             <thead className="bg-slate-50 text-slate-600 font-semibold border-y border-slate-200 uppercase text-xs">
                                 <tr>

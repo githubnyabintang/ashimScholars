@@ -135,7 +135,54 @@ export default function MarketKasirPage() {
                 <div className="xl:col-span-3">
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                         <div className="p-4 sm:p-6">
-                            <div className="overflow-x-auto rounded-xl border border-slate-200">
+                            {/* Mobile Cart Items */}
+                            <div className="md:hidden flex flex-col gap-3 pb-3">
+                                {cart.map((item, index) => (
+                                    <div key={item.id} className="bg-white border border-slate-200 p-3 rounded-xl shadow-sm relative group">
+                                        <button
+                                            onClick={() => removeRow(item.id)}
+                                            className="absolute -top-2 -right-2 bg-red-100 text-red-600 hover:bg-red-200 p-1.5 rounded-full shadow-sm z-10 transition-colors border border-red-200"
+                                        >
+                                            <span className="material-symbols-outlined text-[14px]">close</span>
+                                        </button>
+
+                                        <div className="mb-3 pr-2">
+                                            <select
+                                                className="w-full text-sm border border-slate-300 bg-slate-50 focus:ring-2 focus:ring-[#00642F]/20 focus:border-[#00642F] rounded-lg p-2.5 text-slate-800 font-bold"
+                                                value={item.product?.id || ""}
+                                                onChange={(e) => updateProduct(item.id, e.target.value)}
+                                            >
+                                                <option value="">-- Pilih Barang --</option>
+                                                {products.map(p => (
+                                                    <option key={p.id} value={p.id}>{p.nama} (Rp {p.harga.toLocaleString()})</option>
+                                                ))}
+                                            </select>
+                                        </div>
+
+                                        <div className="grid grid-cols-2 gap-3 items-end">
+                                            <div>
+                                                <label className="text-[10px] font-bold text-slate-500 uppercase block mb-1">QTY</label>
+                                                <input
+                                                    type="number"
+                                                    min="1"
+                                                    className="w-full text-center border border-slate-300 bg-slate-50 focus:ring-2 focus:ring-[#00642F]/20 focus:border-[#00642F] rounded-lg p-2 font-bold text-slate-800"
+                                                    value={item.qty}
+                                                    onChange={(e) => updateQty(item.id, e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="text-right bg-green-50/50 p-2 rounded-lg border border-green-100 h-full flex flex-col justify-end">
+                                                <div className="text-[10px] font-bold text-slate-500 uppercase">Subtotal</div>
+                                                <div className="font-bold text-green-600 text-[14px]">
+                                                    Rp {item.subtotal.toLocaleString()}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Desktop Table View */}
+                            <div className="hidden md:block overflow-x-auto rounded-xl border border-slate-200">
                                 <table className="w-full text-sm text-left">
                                     <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200 uppercase text-xs">
                                         <tr>
@@ -275,8 +322,34 @@ export default function MarketKasirPage() {
                                 <span className="material-symbols-outlined text-[18px]">close</span>
                             </button>
                         </div>
-                        <div className="p-6 overflow-y-auto">
-                            <div className="overflow-x-auto rounded-xl border border-slate-200">
+                        <div className="p-4 sm:p-6 overflow-y-auto">
+                            {/* Mobile Laporan Cards */}
+                            <div className="md:hidden flex flex-col gap-3">
+                                {laporanData.map((item, index) => (
+                                    <div key={index} className="bg-white border border-slate-200 p-3.5 rounded-xl shadow-sm flex flex-col gap-2">
+                                        <div className="flex justify-between items-start">
+                                            <div className="font-bold text-slate-800 text-[13px]">{item.santriName}</div>
+                                            <span className="text-[10px] text-slate-500 font-medium whitespace-nowrap">No. {index + 1}</span>
+                                        </div>
+                                        <div className="text-[11px] text-slate-500">
+                                            ID: <span className="text-red-500 font-bold">{item.santriId}</span> | Trans: <span className="font-medium">{item.id}</span>
+                                        </div>
+                                        <div className="flex justify-between items-end mt-1 pt-2 border-t border-slate-50">
+                                            <div className="text-[10px] text-slate-500 max-w-[60%]">
+                                                <div>{item.tgl}</div>
+                                                <div className="truncate text-[9px] mt-0.5">{item.admin}</div>
+                                            </div>
+                                            <div className="text-right">
+                                                <div className="text-[9px] text-slate-500 font-bold uppercase">Total</div>
+                                                <div className="font-bold text-green-600 text-[14px]">Rp {item.amount}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Desktop Laporan Table */}
+                            <div className="hidden md:block overflow-x-auto rounded-xl border border-slate-200">
                                 <table className="w-full text-sm text-left">
                                     <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200 text-xs uppercase">
                                         <tr>

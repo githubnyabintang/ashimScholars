@@ -118,28 +118,44 @@ export default function DataSantriPage() {
                     </h2>
                 </div>
                 <div className="p-6">
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left border-collapse">
-                            <thead>
-                                <tr className="bg-slate-50 text-slate-500 text-xs uppercase tracking-wider">
-                                    <th className="p-4 font-semibold border-b border-slate-200 text-center w-2/3">Nama Provinsi</th>
-                                    <th className="p-4 font-semibold border-b border-slate-200 text-center w-1/3">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody className="text-sm text-slate-700 divide-y divide-slate-100">
-                                {provinceData.map((prov) => (
-                                    <tr key={prov.id} className="hover:bg-slate-50/50 transition-colors">
-                                        <td className="p-4 text-center font-bold text-slate-800">{prov.name}</td>
-                                        <td className="p-4 text-center">
-                                            <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1.5 rounded-lg text-xs font-bold shadow-sm transition-colors inline-flex items-center gap-2">
-                                                <span className="material-symbols-outlined text-[14px]">add</span>
-                                                Kabupaten
-                                            </button>
-                                        </td>
+                    <div className="flex flex-col gap-0">
+                        {/* Mobile List Cards Provinsi */}
+                        <div className="md:hidden flex flex-col gap-2.5">
+                            {provinceData.map((prov) => (
+                                <div key={prov.id} className="bg-white border border-slate-100 p-3.5 rounded-xl flex justify-between items-center shadow-sm">
+                                    <span className="font-bold text-slate-800 text-[13px]">{prov.name}</span>
+                                    <button className="bg-blue-50 hover:bg-blue-100 active:bg-blue-600 active:text-white text-blue-600 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1">
+                                        <span className="material-symbols-outlined text-[14px]">add</span>
+                                        Kabupaten
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Desktop Table Provinsi */}
+                        <div className="hidden md:block overflow-x-auto">
+                            <table className="w-full text-left border-collapse">
+                                <thead>
+                                    <tr className="bg-slate-50 text-slate-500 text-xs uppercase tracking-wider">
+                                        <th className="p-4 font-semibold border-b border-slate-200 text-center w-2/3">Nama Provinsi</th>
+                                        <th className="p-4 font-semibold border-b border-slate-200 text-center w-1/3">Aksi</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody className="text-sm text-slate-700 divide-y divide-slate-100">
+                                    {provinceData.map((prov) => (
+                                        <tr key={prov.id} className="hover:bg-slate-50/50 transition-colors">
+                                            <td className="p-4 text-center font-bold text-slate-800">{prov.name}</td>
+                                            <td className="p-4 text-center">
+                                                <button className="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white px-4 py-1.5 rounded-lg text-xs font-bold shadow-sm transition-colors inline-flex items-center gap-2">
+                                                    <span className="material-symbols-outlined text-[14px]">add</span>
+                                                    Kabupaten
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

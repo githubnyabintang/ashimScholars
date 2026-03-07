@@ -58,7 +58,49 @@ export default function MarketPegawaiPage() {
 
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                 <div className="p-6">
-                    <div className="overflow-x-auto">
+                    {/* Mobile List Cards Pegawai Kasir */}
+                    <div className="md:hidden flex flex-col gap-3 pb-3">
+                        {employees.map((item, index) => (
+                            <div key={item.id} className="bg-white border border-slate-200 p-3.5 rounded-xl shadow-sm flex flex-col gap-3">
+                                <div className="flex justify-between items-start">
+                                    <div className="flex flex-col gap-0.5 max-w-[80%]">
+                                        <div className="font-bold text-slate-800 text-[14px] leading-tight break-words">{item.name}</div>
+                                        <div className="text-[11px] text-slate-500 font-medium">ID: <span className="text-slate-700">{item.id}</span></div>
+                                    </div>
+                                    <span className="text-[10px] text-slate-500 font-medium whitespace-nowrap bg-slate-100 px-2 py-0.5 rounded-full mt-1">No. {index + 1}</span>
+                                </div>
+                                <div className="grid grid-cols-2 gap-3 mt-1">
+                                    <div className="flex flex-col gap-1.5 p-2 bg-slate-50 rounded-lg border border-slate-100">
+                                        <span className="text-[10px] font-bold text-slate-500 text-center uppercase tracking-wider">Akses Market</span>
+                                        <button
+                                            onClick={() => toggleAccess(item.id, 'market')}
+                                            className={`w-full py-1.5 rounded-lg text-xs font-bold transition-colors ${item.market
+                                                ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                                                : 'bg-[#00642F] text-white hover:bg-[#00642F]/90'
+                                                }`}
+                                        >
+                                            {item.market ? 'Aktif' : 'Tidak'}
+                                        </button>
+                                    </div>
+                                    <div className="flex flex-col gap-1.5 p-2 bg-slate-50 rounded-lg border border-slate-100">
+                                        <span className="text-[10px] font-bold text-slate-500 text-center uppercase tracking-wider">Akses Laundry</span>
+                                        <button
+                                            onClick={() => toggleAccess(item.id, 'laundry')}
+                                            className={`w-full py-1.5 rounded-lg text-xs font-bold transition-colors ${item.laundry
+                                                ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                                                : 'bg-[#00642F] text-white hover:bg-[#00642F]/90'
+                                                }`}
+                                        >
+                                            {item.laundry ? 'Aktif' : 'Tidak'}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Desktop Table View */}
+                    <div className="hidden md:block overflow-x-auto">
                         <table className="w-full text-sm text-left border">
                             <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200 uppercase text-xs">
                                 <tr>
@@ -79,8 +121,8 @@ export default function MarketPegawaiPage() {
                                             <button
                                                 onClick={() => toggleAccess(item.id, 'market')}
                                                 className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-colors ${item.market
-                                                        ? 'bg-green-100 text-green-700 hover:bg-green-200'
-                                                        : 'bg-[#00642F] text-white hover:bg-[#00642F]/90'
+                                                    ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                                                    : 'bg-[#00642F] text-white hover:bg-[#00642F]/90'
                                                     }`}
                                             >
                                                 {item.market ? 'Aktif' : 'Tidak'}
@@ -90,8 +132,8 @@ export default function MarketPegawaiPage() {
                                             <button
                                                 onClick={() => toggleAccess(item.id, 'laundry')}
                                                 className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-colors ${item.laundry
-                                                        ? 'text-slate-800'
-                                                        : 'bg-[#00642F] text-white hover:bg-[#00642F]/90'
+                                                    ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                                                    : 'bg-[#00642F] text-white hover:bg-[#00642F]/90'
                                                     }`}
                                             >
                                                 {item.laundry ? 'Aktif' : 'Tidak'}

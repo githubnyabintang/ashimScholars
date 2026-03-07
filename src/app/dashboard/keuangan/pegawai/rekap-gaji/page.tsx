@@ -48,15 +48,15 @@ export default function RekapGajiPage() {
             </div>
 
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                <div className="p-6 border-b border-slate-200">
-                    <button className="bg-[#00642F] text-white hover:bg-[#005025] px-4 py-2 rounded-xl text-sm font-bold transition-colors shadow-sm flex items-center gap-2 mb-4">
+                <div className="p-4 md:p-6 border-b border-slate-200 flex flex-col items-center">
+                    <button className="w-full md:w-auto bg-[#00642F] text-white hover:bg-[#005025] px-4 py-2.5 rounded-xl text-sm font-bold transition-colors shadow-sm flex items-center justify-center gap-2 mb-4">
                         <span className="material-symbols-outlined text-[18px]">receipt_long</span>
                         Cetak Slip Gaji
                     </button>
 
-                    <div className="max-w-xs">
+                    <div className="w-full md:max-w-xs">
                         <label className="block text-sm font-semibold text-slate-700 mb-2 text-center">Pilih Kampus</label>
-                        <select className="w-full border border-slate-300 rounded-xl px-4 py-2 text-sm text-center font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#00642F]/20 focus:border-[#00642F] cursor-pointer appearance-none bg-white">
+                        <select className="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-center font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#00642F]/20 focus:border-[#00642F] cursor-pointer appearance-none bg-white">
                             <option value="">--- Silahkan Pilih ---</option>
                             <option value="5555578768">KAMPUS I PUTRA</option>
                             <option value="32453534">KAMPUS II PUTRA</option>
@@ -66,7 +66,16 @@ export default function RekapGajiPage() {
                     </div>
                 </div>
 
-                <div className="overflow-x-auto">
+                {/* Mobile Empty State */}
+                <div className="md:hidden flex flex-col p-4 bg-slate-50">
+                    <div className="bg-white border border-slate-200 p-6 rounded-xl shadow-sm flex flex-col items-center justify-center text-center text-slate-500 text-sm font-medium gap-3">
+                        <span className="material-symbols-outlined text-4xl text-slate-300">inbox</span>
+                        <p>Pilih kampus untuk menampilkan data rekap gaji</p>
+                    </div>
+                </div>
+
+                {/* Desktop Table View */}
+                <div className="hidden md:block overflow-x-auto">
                     <table className="w-full text-sm text-left whitespace-nowrap">
                         <thead className="bg-slate-50 text-slate-600 font-semibold border-y border-slate-200 uppercase text-xs">
                             <tr>

@@ -5,6 +5,10 @@ import PegawaiKampusChart from "@/components/dashboard/PegawaiKampusChart";
 import SantriKampusChart from "@/components/dashboard/SantriKampusChart";
 import SantriProgramChart from "@/components/dashboard/SantriProgramChart";
 import AbsensiChart from "@/components/dashboard/AbsensiChart";
+import MobilePegawaiKampusChart from "@/components/dashboard/MobilePegawaiKampusChart";
+import MobileSantriKampusChart from "@/components/dashboard/MobileSantriKampusChart";
+import MobileSantriProgramChart from "@/components/dashboard/MobileSantriProgramChart";
+import MobileAbsensiChart from "@/components/dashboard/MobileAbsensiChart";
 
 export default function DashboardPage() {
     const [mounted, setMounted] = useState(false);
@@ -112,7 +116,8 @@ export default function DashboardPage() {
                 <button className="text-sm font-semibold text-primary hover:text-green-700 bg-primary/5 hover:bg-primary/10 px-4 py-1.5 rounded-full transition-colors">Unduh Laporan</button>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            {/* Desktop Charts - Hidden on Mobile */}
+            <div className="hidden lg:grid grid-cols-2 gap-6 mb-8">
                 <div className="glass-panel-dash bg-white rounded-2xl p-1 shadow-sm hover:shadow-md transition-shadow">
                     <PegawaiKampusChart />
                 </div>
@@ -127,8 +132,16 @@ export default function DashboardPage() {
                 </div>
             </div>
 
-            {/* Extra Bottom Space to ensure it doesn't clip */}
-            <div className="h-12"></div>
+            {/* Mobile Charts - Hidden on Desktop */}
+            <div className="grid lg:hidden grid-cols-1 gap-2 sm:gap-4 mb-2">
+                <MobilePegawaiKampusChart />
+                <MobileSantriKampusChart />
+                <MobileSantriProgramChart />
+                <MobileAbsensiChart />
+            </div>
+
+            {/* Extra Bottom Space reduced for tighter fit to bottom nav on mobile */}
+            <div className="h-6 lg:h-12"></div>
         </div>
     );
 }

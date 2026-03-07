@@ -122,12 +122,18 @@ src/
 
 ## ✨ Key Features
 
-- **Mobile-First Design** — Floating bottom navigation for a native app-like experience on mobile devices.
-- **Responsive Layout** — Fully responsive across all screen sizes with collapsible sidebar on desktop.
-- **Institutional Branding** — Color palette matched to the Al-Imam Ashim identity (Deep Green, Lime, Yellow).
-- **Interactive Charts** — Real-time data visualization for student demographics, staff distribution, and attendance.
-- **AI Inquiry Assistant** — Integrated Genkit AI flow to help prospective students draft effective inquiries.
-- **High Readability** — Clean, professional design with crisp white content cards and optimized typography.
+### 📱 100% Native App-Like Mobile Experience
+- **Smart Bottom Navigation:** A custom, floating bottom navigation bar that acts as the absolute control center on mobile, completely replacing the traditional sidebar.
+- **Dynamic Speech Bubble Popups:** Sub-menus utilize advanced overlapping zero-width coordinate anchors to create flawless, screen-safe "speech-bubble" style dropdowns pointing exactly to the active icon.
+- **Glassmorphism Backdrop Blur:** When mobile popups are active, the main dashboard content seamlessly fades into a highly aesthetic, frosted-glass background (`backdrop-blur`).
+- **Dedicated Mobile Headers:** Context-aware mobile headers that inject landing page branding (Logo & Institution Name) specifically for small screens while preserving desktop layouts.
+- **Strict Sidebar Disassembly:** Desktop slide-out sidebars are robustly disabled (`hidden md:flex`) at the root level on mobile devices to guarantee zero UI conflicts.
+
+### 💻 Desktop & Core Capabilities
+- **Responsive Layout** — Fully responsive across all screen sizes with a premium, collapsible sidebar on desktop.
+- **Institutional Branding** — Color palette rigorously matched to the Al-Imam Ashim identity (Deep Green `#00642F`, Lime `#8CC63F`, Yellow `#FFD500`).
+- **Interactive Charts** — Real-time data visualization for student demographics, staff distribution, and attendance powered by Highcharts.
+- **High Readability** — Clean, professional design with crisp white content cards and optimized typography utilizing the Manrope font.
 
 ---
 
